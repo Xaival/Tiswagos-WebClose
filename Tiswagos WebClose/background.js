@@ -19,7 +19,7 @@ console.log("Lista actualizada el "+siglo+"/"+mes+"/"+dia+" "+hora+":"+minuto+":
 
 
 // Evento - cargar una pestaña
-chrome.tabs.onUpdated.addListener((tabId, tab) => {
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   // Si contiene un texto válido
   if(tab.url!=undefined){
     // ListaDominios - Lista de IPs a bloquear
