@@ -2,7 +2,7 @@
 let ListaDominios=[];
 
 // Extraer URLs de base de datos y guardar en array
-fetch('https://sheets.googleapis.com/v4/spreadsheets/1YG61sHOVHp-38W7WBMoZTuGT6zrEMW1_DB7gTtZJlZs/values/webs!F2:F?key=AIzaSyBIwM6uww1cw0vxk-4uEPkhY_5QzNE4ixI')
+fetch('https://sheets.googleapis.com/v4/spreadsheets/1NrrqCMZ3LcyL81fQpSD3C33XcffQbkzrgw6yWXCCjO4/values/webs!F2:F?key=AIzaSyBIwM6uww1cw0vxk-4uEPkhY_5QzNE4ixI')
 .then(response => response.json())
 .then(Listas => {Listas.values.map(function(element){ListaDominios.push(element[0]);});});
 
@@ -20,18 +20,26 @@ console.log("Lista actualizada el "+siglo+"/"+mes+"/"+dia+" "+hora+":"+minuto+":
 
 // Evento - cargar una pestaña
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  // Si contiene un texto válido
-  if(tab.url!=undefined){
-    // ListaDominios - Lista de IPs a bloquear
-    // tab.url - URL de página cargada
+	// Si contiene un texto válido
+	if(tab.url!=undefined){
+		// ListaDominios - Lista de IPs a bloquear
+		// tab.url - URL de página cargada
 
-    let url = new URL(tab.url) // Declarar URL de la pestaña como objeto URL (La variable URL en mayúsculas da un conflicto y no funcionará)
-    let Dominio = url.hostname // Nombre de dominio
+		let url = new URL(tab.url) // Declarar URL de la pestaña como objeto URL (La variable URL en mayúsculas da un conflicto y no funcionará)
+		let Dominio = url.hostname // Nombre de dominio
 
-    // Si array dominio contiene X
-    if (ListaDominios.includes(Dominio) || tab.url=="about:blank"){
-      // Cerrar pestaña
-      chrome.tabs.remove(tabId);
-    }
-  }
+		// Si array dominio contiene X
+		if (ListaDominios.includes(Dominio){
+			// Cerrar pestaña
+			chrome.tabs.remove(tabId);
+		
+		// En caso de que se habra una pagina about:blank
+		} else if (tab.url=="about:blank")){
+			// Esperar 5 segundos (Por si redirecciona)
+			setTimeout(function(){
+				// Cerrar pestaña
+				chrome.tabs.remove(tabId);
+			},5000);
+		}
+	}
 });
