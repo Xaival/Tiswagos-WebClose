@@ -2,7 +2,7 @@
 let ListaDominios=[];
 
 // Extraer URLs de base de datos y guardar en array
-fetch('https://sheets.googleapis.com/v4/spreadsheets/1NrrqCMZ3LcyL81fQpSD3C33XcffQbkzrgw6yWXCCjO4/values/webs!F2:F?key=AIzaSyBIwM6uww1cw0vxk-4uEPkhY_5QzNE4ixI')
+fetch('https://sheets.googleapis.com/v4/spreadsheets/1YG61sHOVHp-38W7WBMoZTuGT6zrEMW1_DB7gTtZJlZs/values/webs!F2:F?key=AIzaSyBIwM6uww1cw0vxk-4uEPkhY_5QzNE4ixI')
 .then(response => response.json())
 .then(Listas => {Listas.values.map(function(element){ListaDominios.push(element[0]);});});
 
