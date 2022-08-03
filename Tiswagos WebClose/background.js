@@ -2,9 +2,9 @@
 let ListaDominios=[];
 
 // Extraer URLs de base de datos y guardar en array
-fetch('https://sheets.googleapis.com/v4/spreadsheets/1YG61sHOVHp-38W7WBMoZTuGT6zrEMW1_DB7gTtZJlZs/values/webs!F2:F?key=AIzaSyBIwM6uww1cw0vxk-4uEPkhY_5QzNE4ixI')
+fetch('https://script.google.com/macros/s/AKfycbzZpQ1X-cvxGqrFqFkKNHWwgcxeyyedmCkMx8Dvf8zLUaX7h7c_FM-b6_8RBfw0bos8_w/exec?sheet=webs')
 .then(response => response.json())
-.then(Listas => {Listas.values.map(function(element){ListaDominios.push(element[0]);});});
+.then(Listas => {Listas.data.map(function(element){ListaDominios.push(element["dominio"]);});});
 
 // Mostrar fecha
 let actual = new Date();
@@ -29,12 +29,12 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 		let Dominio = url.hostname // Nombre de dominio
 
 		// Si array dominio contiene X
-		if (ListaDominios.includes(Dominio){
+		if (ListaDominios.includes(Dominio)){
 			// Cerrar pestaña
 			chrome.tabs.remove(tabId);
-		
+			
 		// En caso de que se habra una pagina about:blank
-		} else if (tab.url=="about:blank")){
+		} else if (tab.url=="about:blank"){
 			// Esperar 5 segundos (Por si redirecciona)
 			setTimeout(function(){
 				// Cerrar pestaña
