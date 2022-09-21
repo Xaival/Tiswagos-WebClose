@@ -2,9 +2,9 @@
 let ListaDominios=[];
 
 // Extraer URLs de base de datos y guardar en array
-fetch('https://script.google.com/macros/s/AKfycbzZpQ1X-cvxGqrFqFkKNHWwgcxeyyedmCkMx8Dvf8zLUaX7h7c_FM-b6_8RBfw0bos8_w/exec?sheet=webs')
+fetch('https://raw.githubusercontent.com/Xaival/JSON/main/Tiswagos%20Liri/Webs_Dominio.json')
 .then(response => response.json())
-.then(Listas => {Listas.data.map(function(element){ListaDominios.push(element["dominio"]);});});
+.then(Listas => {Listas.values.map(function(element){ListaDominios.push(element["Dominio"]);});});
 
 // Mostrar fecha
 let actual = new Date();
