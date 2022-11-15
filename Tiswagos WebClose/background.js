@@ -32,14 +32,6 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 		if (ListaDominios.includes(Dominio)){
 			// Cerrar pestaña
 			chrome.tabs.remove(tabId);
-			
-		// En caso de que se habra una pagina about:blank
-		} else if (tab.url=="about:blank"){
-			// Esperar 5 segundos (Por si redirecciona)
-			setTimeout(function(){
-				// Cerrar pestaña
-				chrome.tabs.remove(tabId);
-			},5000);
 		}
 	}
 });
