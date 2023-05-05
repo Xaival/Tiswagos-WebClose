@@ -1,6 +1,6 @@
 {
 	"manifest_version": 3,
-	"version": "2022.11.15",
+	"version": "2023.05.06",
 	"name": "Tiswagos WebClose",
 	"description": "Cierra pestañas con dominios definidos en Tiswagos Liri",
 	"author": "Xaival",
