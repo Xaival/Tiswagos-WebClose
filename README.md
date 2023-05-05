@@ -1,5 +1,5 @@
 # Tiswagos WebClose
-Cierra pestañas con dominios definidos en Tiswagos Liri
+Cierra pestañas con dominios definidos en Tiswagos
 
 Extensión en [Chrome Web Store](https://chrome.google.com/webstore/detail/tiswagos-webclose/lgfkfdcglekohcdghngajnageicebnki)
 
