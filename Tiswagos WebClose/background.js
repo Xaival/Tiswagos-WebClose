@@ -2,7 +2,7 @@
 let ListaDominios=[];
 
 // Extraer URLs de base de datos y guardar en array
-fetch('https://raw.githubusercontent.com/Xaival/JSON/main/Tiswagos%20Liri/Webs_Dominio.json')
+fetch('https://raw.githubusercontent.com/Xaival/JSON/main/Tiswagos/Webs_Dominio.json')
 .then(response => response.json())
 .then(Listas => {Listas.values.map(function(element){ListaDominios.push(element["Dominio"]);});});
 
